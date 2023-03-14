@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      // this.belongsTo(models.Event, {
+      //   foreignKey: 'event_id',
+      //   onDelete: 'SET NULL'
+      // })
     }
   }
   MeetGreet.init({
@@ -21,7 +25,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     event_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
+      allowNull: false,
+      // references: {
+      //   model: Event,
+      //   key: 'event_id'
+      // }
     },
     band_id: {
       type: DataTypes.INTEGER,
