@@ -23,10 +23,36 @@ bands.post('/', async (req, res) => {
     }
 })
 
-bands.get('/:id', async (req, res) => {
+bands.get('/:band_name', async (req, res) => {
     try {
-        const foundBand = await Band.findOne({ where: { band_name: req.params.id } })
+        const foundBand = await Band.findOne({ where: { band_name: req.params.band_name } })
         res.status(200).json(foundBand)
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+bands.put('/:band_name', async (req, res) => {
+    try {
+        const updatedBands = Band.update(req.body, { where: { band_name: req.params.band_name } })
+        res.status(200).json({
+            message: `Successfully updated ${updatedBands} band(s)`
+        })
+    } catch (err) {
+        res.status(500).json(err)
+    }
+})
+
+bands.delete('/:band_name', (req, res) => {
+    try {
+        const deletedBands = Band.destroy({
+            where: {
+            band_name: req.params.band_name
+            }
+        })
+        res.status(200).json({
+            message: `Successfully DELETED ${deletedBands} band(s)`
+        })
     } catch (err) {
         res.status(500).json(err)
     }
