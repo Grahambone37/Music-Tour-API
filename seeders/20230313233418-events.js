@@ -18,6 +18,11 @@ module.exports = {
       event_start_time: '8am EST',
       event_end_time: '12pm EST',
       event_length_minutes: 240
+      }, {
+      event_name: 'Some Songs',
+      event_start_time: '3:15pm PST',
+      event_end_time: '5pm PST',
+      event_length_minutes: 105
     }], {});
   },
 
