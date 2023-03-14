@@ -38,5 +38,5 @@ module.exports = (sequelize, DataTypes) => {
     tableName: 'stages_events',
     timestamps: false
   });
-  return Stage_Event;
+  return StageEvent;
 };
